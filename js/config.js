@@ -108,7 +108,7 @@ const API_SITES = {
     testSource: {
         api: 'https://www.example.com',
         name: '空内容测试源',
-        adult: true
+        adult: false
     },
     // 下面是一些成人内容的API源，默认隐藏，使用本项目浏览黄色内容违背项目初衷
     // 互联网上传播的色情内容将人彻底客体化、工具化，是性别解放和人类平等道路上的巨大障碍。
