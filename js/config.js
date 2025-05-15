@@ -108,7 +108,7 @@ const API_SITES = {
     testSource: {
         api: 'https://www.example.com',
         name: '空内容测试源',
-        adult: true
+        adult: false
     },
     // 下面是一些成人内容的API源，默认隐藏，使用本项目浏览黄色内容违背项目初衷
     // 互联网上传播的色情内容将人彻底客体化、工具化，是性别解放和人类平等道路上的巨大障碍。
@@ -121,43 +121,43 @@ const API_SITES = {
     // ckzy: {
     //     api: 'https://www.ckzy1.com',
     //     name: 'CK资源',
-    //     adult: true
+    //     adult:false
     // },
     // jkun: {
     //     api: 'https://jkunzyapi.com',
     //     name: 'jkun资源',
-    //     adult: true
+    //     adult: false
     // },
     // bwzy: {
     //     api: 'https://api.bwzym3u8.com',
     //     name: '百万资源',
-    //     adult: true
+    //     adult: false
     // },
     // souav: {
     //     api: 'https://api.souavzy.vip',
     //     name: 'souav资源',
-    //     adult: true
+    //     adult: false
     // },
     // r155: {
     //     api: 'https://155api.com',
     //     name: '155资源',
-    //     adult: true
+    //     adult: false
     // },
     // lsb: {
     //     api: 'https://apilsbzy1.com',
     //     name: 'lsb资源',
-    //     adult: true
+    //     adult: false
     // },
     // huangcang: {
     //     api: 'https://hsckzy.vip',
     //     name: '黄色仓库',
-    //     adult: true,
+    //     adult: false
     //     detail: 'https://hsckzy.vip'
     // },
     // yutu: {
     //     api: 'https://yutuzy10.com',
     //     name: '玉兔资源',
-    //     adult: true
+    //     adult:false
     // },
 };
 
