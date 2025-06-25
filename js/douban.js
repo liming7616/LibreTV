@@ -1,52 +1,26 @@
 // 豆瓣热门电影电视剧推荐功能
+import { 
+    // defaultMovieTags, // No longer directly used here, core module handles them
+    // defaultTvTags,   // No longer directly used here
+    movieTags,      // Used for read-only purposes if needed, or passed by UI module
+    tvTags,         // Used for read-only purposes if needed, or passed by UI module
+    loadUserTags, 
+    // saveUserTags as coreSaveUserTags // UI module now calls this directly
+} from './douban_tags_core.js';
 
-// 豆瓣标签列表 - 修改为默认标签
-let defaultMovieTags = ['热门', '最新', '经典', '豆瓣高分', '冷门佳片', '华语', '欧美', '韩国', '日本', '动作', '喜剧', '爱情', '科幻', '悬疑', '恐怖', '治愈'];
-let defaultTvTags = ['热门', '美剧', '英剧', '韩剧', '日剧', '国产剧', '港剧', '日本动画', '综艺', '纪录片'];
+import { 
+    renderDoubanTagsUI, 
+    showTagManageModalUI 
+} from './douban_tags_ui.js';
 
-// 用户标签列表 - 存储用户实际使用的标签（包含保留的系统标签和用户添加的自定义标签）
-let movieTags = [];
-let tvTags = [];
+import { fetchDoubanApiData } from './douban_api.js';
+import { renderDoubanCardsUI } from './douban_cards_ui.js';
 
-// 加载用户标签
-function loadUserTags() {
-    try {
-        // 尝试从本地存储加载用户保存的标签
-        const savedMovieTags = localStorage.getItem('userMovieTags');
-        const savedTvTags = localStorage.getItem('userTvTags');
-        
-        // 如果本地存储中有标签数据，则使用它
-        if (savedMovieTags) {
-            movieTags = JSON.parse(savedMovieTags);
-        } else {
-            // 否则使用默认标签
-            movieTags = [...defaultMovieTags];
-        }
-        
-        if (savedTvTags) {
-            tvTags = JSON.parse(savedTvTags);
-        } else {
-            // 否则使用默认标签
-            tvTags = [...defaultTvTags];
-        }
-    } catch (e) {
-        console.error('加载标签失败：', e);
-        // 初始化为默认值，防止错误
-        movieTags = [...defaultMovieTags];
-        tvTags = [...defaultTvTags];
-    }
-}
+// The saveUserTags wrapper is no longer needed here as UI functions handle saving and toast.
 
-// 保存用户标签
-function saveUserTags() {
-    try {
-        localStorage.setItem('userMovieTags', JSON.stringify(movieTags));
-        localStorage.setItem('userTvTags', JSON.stringify(tvTags));
-    } catch (e) {
-        console.error('保存标签失败：', e);
-        showToast('保存标签失败', 'error');
-    }
-}
+// Assuming PROXY_URL is defined globally in the scope where douban.js runs
+// For example, in a script tag before this module, or in a config.js file.
+// const PROXY_URL = '/api/proxy?url='; // Example, ensure this is defined.
 
 let doubanMovieTvCurrentSwitch = 'movie';
 let doubanCurrentTag = '热门';
